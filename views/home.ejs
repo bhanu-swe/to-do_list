@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('header.ejs') %>
+
+<body>
+    <h1>TO-DO LIST</h1>
+
+    <form action="/add-task_home" class="taskadder" method="post">
+        <input type="text" name="task" class="taskinput" placeholder="Add a new task">
+        <button  class="addbutton" type="submit">Add</button>
+    </form>
+
+    <h2>Tasks:</h2>
+    <ul>
+        <% t_home.forEach((todo, index) => { %>
+            <li>
+                <% if (completed_home[index] === 0) { %>
+                    <input type="checkbox" class="box" id="task<%= index %>" onchange="markCompleted(<%= index %>)">
+                    <label class="pending_task" for="task<%= index %>"><%= todo %></label>
+                <% } else { %>
+                    <input type="checkbox" class="completed box" onchange="markunCompleted(<%= index %>)" checked>
+                    <label class="completed pending_task" for="task<%= index %>"><%= todo %></label>
+                <% } %>
+                
+            </li>
+        <% }); %>
+    </ul>
+
+    <script>
+        function markCompleted(index) {
+            fetch('/update-completed', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    index: index,
+                    isChecked: true,
+                }).toString(),
+            });
+        }
+        function markunCompleted(index){
+            fetch('/update-completed', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    index: index,
+                    isChecked: false,
+                }).toString(),
+            });
+
+        }
+    </script>
+    
+
+    <%- include('footer.ejs') %>
+</body>
+
+</html>

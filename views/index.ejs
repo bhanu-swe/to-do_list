@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+    </head>
+<body>
+    <%- include('header.ejs') %>
+    <h1 class="mainpage-h1">TO-DO LIST</h1>
+    <div class ="flex-mainpage">
+        
+        <form  action="/home" method="get">
+            <button class="mainpage-button" type="submit">home</button>
+        </form>
+        <form  action="/work" method="get">
+            <button class="mainpage-button" type="submit">Work</button>
+        </form>
+        
+        
+    </div>
+
+    <%- include('footer.ejs') %>    
+</body>
+</html>

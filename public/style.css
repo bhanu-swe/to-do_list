@@ -1,0 +1,81 @@
+body{
+    background-image: linear-gradient(rgba(255, 255, 255, 0.756), rgb(255, 255, 255)),url('clock.png');
+    
+    background-size: 20% 20%;
+    background-attachment: fixed;
+}
+h1{
+   color: black;
+    margin: 0 auto auto auto;
+    text-align: center;
+}
+
+.taskadder{
+  height: 80px;
+}
+.taskinput{
+  height:80%;
+  width: 70%;
+  font-size: medium;
+  border-radius: 30%;
+  margin-left: 10%;
+  box-shadow: 10px 10px 20px black;
+}
+.addbutton{
+  height: 80%;
+  width:10%;
+  border-radius: 30%;
+  font-size: medium;
+  color: black;
+  box-shadow: 10px 10px 20px black;
+}
+
+
+  input[type="checkbox"]:not(:checked) + label {
+    text-decoration: none;
+}
+
+input[type="checkbox"]:checked + label {
+    text-decoration: line-through;
+}
+.completed{
+  text-decoration: line-through;  
+}
+.flex-mainpage{
+   /*background-color:  #ff595e;*/
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
+   align-self: center;
+   height: 250px;
+   width: 250px;
+   position: absolute;
+   top: 30%;
+   left: 40%;
+   
+   
+  }
+  
+  .mainpage-button{
+    border-radius: 50%;
+    height:100px;
+    width: 100px;
+   box-shadow: 10px 10px 20px black;
+    font-size: medium;
+  }
+  .box{
+    height:25px;
+    width:25px;
+  }
+  .pending_task{
+     font-size: 25px;
+  }
+footer{
+  position: absolute;
+  display: flex;
+  /*background-color: #386641;*/
+  bottom: 0%;
+  justify-content: center;
+   align-items: center;
+  width:100%;
+}
